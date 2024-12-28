@@ -264,7 +264,7 @@ openssl req -new -x509 -days 3650 -key "private.key" -out "cert.pem" -subj "/CN=
       "users": [
         {
           "uuid": "$UUID",
-          "password": "admin123"
+          "password": "$UUID"
         }
       ],
       "congestion_control": "bbr",
