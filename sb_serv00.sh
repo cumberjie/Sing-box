@@ -424,7 +424,7 @@ vmess://$(echo "{ \"v\": \"2\", \"ps\": \"$NAME-vmess-argo\", \"add\": \"$CFIP\"
 
 hysteria2://$UUID@$available_ip:$hy2_port/?sni=www.bing.com&alpn=h3&insecure=1#$NAME-hysteria2
 
-tuic://$UUID:admin123@$available_ip:$tuic_port?sni=www.bing.com&congestion_control=bbr&udp_relay_mode=native&alpn=h3&retry_limit=5&retry_interval=2&smux=true&max_streams=64&padding=true&allow_insecure=1#$NAME-tuic
+tuic://$UUID:$UUID@$available_ip:$tuic_port?sni=www.bing.com&congestion_control=bbr&udp_relay_mode=native&alpn=h3&retry_limit=5&retry_interval=2&smux=true&max_streams=64&padding=true&allow_insecure=1#$NAME-tuic
 EOF
 cat list.txt
 purple "\n$WORKDIR/list.txt saved successfully"
