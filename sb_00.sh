@@ -275,7 +275,14 @@ openssl req -new -x509 -days 3650 -key "private.key" -out "cert.pem" -subj "/CN=
         ],
         "certificate_path": "cert.pem",
         "key_path": "private.key"
-      }
+      },
+      "smux": {
+        "enabled": true,
+        "max_streams": 64,
+        "padding": true
+      },
+      "retry_limit": 5,
+      "retry_interval": 2
     }
 
  ],
@@ -350,7 +357,7 @@ vless://$UUID@$available_ip:$vless_port?encryption=none&flow=xtls-rprx-vision&se
 
 hysteria2://$UUID@$available_ip:$hy2_port/?sni=www.bing.com&alpn=h3&insecure=1#$NAME-hy2
 
-tuic://$UUID:$UUID@$available_ip:$tuic_port?sni=www.bing.com&congestion_control=bbr&udp_relay_mode=native&alpn=h3&allow_insecure=1#$NAME-tuic
+tuic://$UUID:$UUID@$available_ip:$tuic_port?sni=www.bing.com&congestion_control=bbr&udp_relay_mode=native&alpn=h3&retry_limit=5&retry_interval=2&smux=true&max_streams=64&padding=true&allow_insecure=1#$NAME-tuic
 EOF
 cat list.txt
 purple "\n$WORKDIR/list.txt saved successfully"
